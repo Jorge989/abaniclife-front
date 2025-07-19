@@ -1,16 +1,34 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/', // Garante que a aplicação funcione na raiz do domínio
-  build: {
-    outDir: 'dist', // Diretório de saída para o build
-    assetsDir: 'assets', // Diretório para os assets
-    sourcemap: true, // Opcional: gera sourcemaps para debugging
+  plugins: [
+    react({
+      jsxRuntime: 'classic' // Adicione esta linha para evitar conflitos
+    }),
+    tailwindcss()
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
-  server: {
-    port: 3000, // Opcional: define a porta para o servidor de desenvolvimento
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      external: [], // Explicitamente defina módulos externos se necessário
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        }
+      }
+    }
+  },
+  optimizeDeps: {
+    exclude: [], // Adicione módulos problemáticos aqui se necessário
   },
 });
