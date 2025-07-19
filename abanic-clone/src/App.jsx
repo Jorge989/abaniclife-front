@@ -1,5 +1,4 @@
 import React, { Suspense, lazy, useEffect } from "react";
-import "./App.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,34 +12,37 @@ import { LanguageProvider } from "./context/LanguageContext";
 const Home = lazy(() => import("./pages/Home"));
 const Product = lazy(() => import("./pages/Product"));
 
-// Componente wrapper para lidar com scroll de âncoras
-const ProductWithAnchor = () => {
+const ScrollToAnchor = () => {
   const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
-      const id = location.hash.replace("#", "");
-      const element = document.getElementById(id);
+      const element = document.getElementById(location.hash.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
       }
     }
   }, [location]);
 
-  return <Product />;
+  return null;
 };
 
 function App() {
   return (
     <LanguageProvider>
       <Router>
+        <ScrollToAnchor />
         <div className="App">
           <Header />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={<div className="loading-spinner">Loading...</div>}
+          >
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/product" element={<ProductWithAnchor />} />
-              {/* Remova a rota com # - não é necessária */}
+              <Route path="/product" element={<Product />} />
+              <Route path="*" element={<Home />} /> {/* Fallback route */}
             </Routes>
           </Suspense>
           <Footer />
