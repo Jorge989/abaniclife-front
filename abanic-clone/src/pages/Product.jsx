@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "../components/ui/button";
 
 const principiosData = [
@@ -91,7 +91,10 @@ const PrincipiosAtivos = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   return (
-    <section className="max-w-[1200px] mx-auto px-4 md:-mt-16 mb-10">
+    <section
+      id="hidratante"
+      className="max-w-[1200px] mx-auto px-4 md:-mt-16 mb-10"
+    >
       <h1 className="text-center text-4xl font-light text-[#494949] mb-10">
         Princípios Ativos
       </h1>
@@ -124,7 +127,10 @@ const PrincipiosAtivos = () => {
 const ProductPage = () => {
   return (
     <>
-      <section className="min-h-screen bg-white flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 p-4 md:p-8 py-12 md:py-10 mt-15 md:mt-10">
+      <section
+        id="hidratante"
+        className="min-h-screen bg-white flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 p-4 md:p-8 py-12 md:py-10 mt-15 md:mt-10"
+      >
         {/* Imagem do Produto - Agora com padding e margens responsivas */}
         <div className="w-full md:flex-1 min-w-[250px] max-w-[380px] px-4 md:px-0">
           <img

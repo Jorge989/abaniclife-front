@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
+import { useState, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 
 const CultureSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,50 +12,56 @@ const CultureSection = () => {
       id: 1,
       title: "Opening Day Of Boating Season",
       description: "Of course the Puget Sound is very watery...",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      category: "Lifestyle"
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      category: "Lifestyle",
     },
     {
       id: 2,
       title: "How To Choose The Right Laptop",
       description: "Choosing the right laptop for programming...",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      category: "Technology"
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      category: "Technology",
     },
     {
       id: 3,
       title: "How We Built The First Self-Driving Car",
       description: "Electric self-driving cars will save millions...",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      category: "Innovation"
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      category: "Innovation",
     },
     {
       id: 4,
       title: "How To Persuade Your Parents",
       description: "Parents often don't want to...",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      category: "Lifestyle"
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      category: "Lifestyle",
     },
     {
       id: 5,
       title: "Another Awesome Article",
       description: "More content that keeps the user scrolling...",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      category: "Culture"
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      category: "Culture",
     },
     {
       id: 6,
       title: "The Future of Design",
       description: "Exploring new trends in modern design...",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      category: "Design"
-    }
+      image:
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      category: "Design",
+    },
   ];
 
   const itemsPerView = {
     mobile: 1,
     tablet: 2,
-    desktop: 4
+    desktop: 4,
   };
 
   const maxIndex = Math.max(0, articles.length - itemsPerView.desktop);
@@ -112,15 +118,17 @@ const CultureSection = () => {
 
           {/* Cards Container */}
           <div className="overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ 
-                transform: `translateX(-${currentIndex * (100 / itemsPerView.desktop)}%)` 
+              style={{
+                transform: `translateX(-${
+                  currentIndex * (100 / itemsPerView.desktop)
+                }%)`,
               }}
             >
               {articles.map((article) => (
-                <div 
-                  key={article.id} 
+                <div
+                  key={article.id}
                   className="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-3"
                 >
                   <Card className="group cursor-pointer transition-smooth hover-lift hover:shadow-xl border-0 bg-gradient-to-br from-orange-50 to-orange-100">
@@ -143,7 +151,7 @@ const CultureSection = () => {
                             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-4 bg-black/20 rounded-full blur-sm" />
                           </div>
                         </div>
-                        
+
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4">
                           <span className="bg-white/90 text-abanic-gray text-xs font-medium px-3 py-1 rounded-full">
@@ -160,7 +168,7 @@ const CultureSection = () => {
                         <p className="text-abanic-gray text-sm leading-relaxed">
                           {article.description}
                         </p>
-                        
+
                         {/* Read More Link */}
                         <div className="mt-4">
                           <span className="text-orange-600 text-sm font-medium group-hover:text-orange-700 transition-colors">
@@ -183,9 +191,9 @@ const CultureSection = () => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-smooth ${
-                index === currentIndex 
-                  ? 'bg-orange-600' 
-                  : 'bg-gray-300 hover:bg-gray-400'
+                index === currentIndex
+                  ? "bg-orange-600"
+                  : "bg-gray-300 hover:bg-gray-400"
               }`}
               aria-label={`Ir para grupo ${index + 1}`}
             />
@@ -197,4 +205,3 @@ const CultureSection = () => {
 };
 
 export default CultureSection;
-
