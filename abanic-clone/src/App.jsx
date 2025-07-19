@@ -8,7 +8,7 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./context/LanguageContext";
-
+import "./App.css";
 const Home = lazy(() => import("./pages/Home"));
 const Product = lazy(() => import("./pages/Product"));
 
