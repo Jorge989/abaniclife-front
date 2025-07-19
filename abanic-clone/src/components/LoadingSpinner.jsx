@@ -1,17 +1,15 @@
-import React from 'react';
-
-const LoadingSpinner = ({ size = 'md', color = 'orange' }) => {
+const LoadingSpinner = ({ size = "md", color = "orange" }) => {
   const sizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-8 h-8',
-    lg: 'w-12 h-12',
-    xl: 'w-16 h-16'
+    sm: "w-4 h-4",
+    md: "w-8 h-8",
+    lg: "w-12 h-12",
+    xl: "w-16 h-16",
   };
 
   const colorClasses = {
-    orange: 'border-orange-500',
-    white: 'border-white',
-    gray: 'border-gray-500'
+    orange: "border-orange-500",
+    white: "border-white",
+    gray: "border-gray-500",
   };
 
   return (
@@ -28,4 +26,3 @@ const LoadingSpinner = ({ size = 'md', color = 'orange' }) => {
 };
 
 export default LoadingSpinner;
-
