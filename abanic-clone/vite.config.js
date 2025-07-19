@@ -1,31 +1,23 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+import path from 'path'; // Importe o módulo path
 
 export default defineConfig({
-  plugins: [
-    react({
-      jsxRuntime: 'automatic', // Crucial para React 17+
-      jsxImportSource: 'react', // Garante imports automáticos
-      babel: {
-        plugins: [
-          ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }]
-        ]
-      }
-    })
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss(),
+        autoprefixer()
+      ],
     },
   },
-  build: {
-    outDir: 'dist',
-    rollupOptions: {
-      external: []
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'), // Configuração correta do alias
+      '@/lib/utils': path.resolve(__dirname, './src/lib/utils.js') // Caminho absoluto
     }
-  },
-  esbuild: {
-    jsxInject: `import React from 'react'` // Fallback seguro
   }
 });

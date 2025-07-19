@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Facebook,
   Instagram,
@@ -8,7 +7,8 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext"; // ajuste o caminho conforme sua estrutura
+
+import { useLanguage } from "../context/LanguageContext";
 
 const Footer = () => {
   const { language } = useLanguage();

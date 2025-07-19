@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from './ui/button';
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -9,24 +9,29 @@ const HeroSection = () => {
     {
       id: 1,
       title: "Explore a Natureza",
-      subtitle: "Descubra as maravilhas naturais ao redor do mundo e inspire-se em sua beleza",
-      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
-      overlay: "bg-black/30"
+      subtitle:
+        "Descubra as maravilhas naturais ao redor do mundo e inspire-se em sua beleza",
+      image:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+      overlay: "bg-black/30",
     },
     {
       id: 2,
       title: "Cultura e Tendência",
       subtitle: "Acompanhe com a ABANIC as últimas novidades do mundo",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      overlay: "bg-black/40"
+      image:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      overlay: "bg-black/40",
     },
     {
       id: 3,
       title: "Beleza Natural",
-      subtitle: "Conecte-se com a essência da natureza através dos nossos produtos",
-      image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
-      overlay: "bg-black/35"
-    }
+      subtitle:
+        "Conecte-se com a essência da natureza através dos nossos produtos",
+      image:
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
+      overlay: "bg-black/35",
+    },
   ];
 
   const nextSlide = () => {
@@ -55,7 +60,7 @@ const HeroSection = () => {
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
             {/* Background Image */}
@@ -63,10 +68,10 @@ const HeroSection = () => {
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: `url(${slide.image})` }}
             />
-            
+
             {/* Overlay */}
             <div className={`absolute inset-0 ${slide.overlay}`} />
-            
+
             {/* Content */}
             <div className="relative z-10 flex items-center justify-center h-full">
               <div className="text-center text-white px-4 max-w-4xl mx-auto">
@@ -76,8 +81,8 @@ const HeroSection = () => {
                 <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 animate-fade-in-up animation-delay-300">
                   {slide.subtitle}
                 </p>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-abanic-orange hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-full transition-smooth hover-lift animate-fade-in-up animation-delay-600"
                 >
                   Descobrir Mais
@@ -116,9 +121,9 @@ const HeroSection = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-smooth ${
-              index === currentSlide 
-                ? 'bg-white' 
-                : 'bg-white/50 hover:bg-white/75'
+              index === currentSlide
+                ? "bg-white"
+                : "bg-white/50 hover:bg-white/75"
             }`}
             aria-label={`Ir para slide ${index + 1}`}
           />
@@ -136,4 +141,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
