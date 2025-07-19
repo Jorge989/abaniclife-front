@@ -1,18 +1,8 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "vite.config.js",
-      "use": "@vercel/vite",
-      "config": {
-        "outputDirectory": "dist"
-      }
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  }
 }
