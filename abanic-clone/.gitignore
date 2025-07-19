@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+
+# Dependency directories
+.pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+npm-debug.log
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+
+# Public folder (caso tenha arquivos gerados que não queira versionar)
+public/
+
+# Outros arquivos que não quer subir
+*.env
