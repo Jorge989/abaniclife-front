@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Mail, CheckCircle } from 'lucide-react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Card, CardContent } from './ui/card';
-
+import React, { useState } from "react";
+import { Mail, CheckCircle } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Card, CardContent } from "./ui/card";
+import AbanaicWoman from "../assets/abanicWoman.jpg";
 const NewsletterSection = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -14,30 +14,33 @@ const NewsletterSection = () => {
     if (!email) return;
 
     setIsLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsSubscribed(true);
       setIsLoading(false);
-      setEmail('');
+      setEmail("");
     }, 1500);
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100" id="newsletter">
+    <section
+      className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100"
+      id="newsletter"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1594824804732-ca8db7d1457c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src={AbanaicWoman}
                 alt="Mulher aplicando produto de beleza natural"
                 className="w-full h-96 lg:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
-            
+
             {/* Floating Elements */}
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-orange-500 rounded-full opacity-20 animate-pulse" />
             <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-500 rounded-full opacity-30 animate-bounce" />
@@ -47,12 +50,12 @@ const NewsletterSection = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-abanic-gray-dark mb-6">
-                Fique por dentro das{' '}
+                Fique por dentro das{" "}
                 <span className="abanic-orange">novidades</span>
               </h2>
               <p className="text-lg text-abanic-gray leading-relaxed mb-8">
-                Receba em primeira mão as últimas tendências em beleza natural, 
-                dicas exclusivas de cuidados com a pele e lançamentos especiais 
+                Receba em primeira mão as últimas tendências em beleza natural,
+                dicas exclusivas de cuidados com a pele e lançamentos especiais
                 da ABANIC diretamente no seu e-mail.
               </p>
             </div>
@@ -61,15 +64,21 @@ const NewsletterSection = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                <span className="text-abanic-gray">Dicas exclusivas de beleza natural</span>
+                <span className="text-abanic-gray">
+                  Dicas exclusivas de beleza natural
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                <span className="text-abanic-gray">Acesso antecipado a novos produtos</span>
+                <span className="text-abanic-gray">
+                  Acesso antecipado a novos produtos
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                <span className="text-abanic-gray">Ofertas especiais para assinantes</span>
+                <span className="text-abanic-gray">
+                  Ofertas especiais para assinantes
+                </span>
               </div>
             </div>
 
@@ -84,7 +93,7 @@ const NewsletterSection = () => {
                         Inscreva-se na nossa newsletter
                       </span>
                     </div>
-                    
+
                     <div className="flex flex-col sm:flex-row gap-3">
                       <Input
                         type="email"
@@ -96,8 +105,9 @@ const NewsletterSection = () => {
                       />
                       <Button
                         type="submit"
+                        variant="unstyled"
                         disabled={isLoading || !email}
-                        className="bg-abanic-orange hover:bg-orange-600 text-white px-8 py-2 font-semibold transition-smooth hover-lift disabled:opacity-50"
+                        className="bg-abanic-orange hover:bg-abanic-orange-dark text-white px-8 py-2 font-semibold transition-smooth hover-lift disabled:opacity-50"
                       >
                         {isLoading ? (
                           <div className="flex items-center space-x-2">
@@ -105,14 +115,15 @@ const NewsletterSection = () => {
                             <span>Inscrevendo...</span>
                           </div>
                         ) : (
-                          'Inscrever-se'
+                          "Inscrever-se"
                         )}
                       </Button>
                     </div>
-                    
+
                     <p className="text-xs text-abanic-gray">
-                      Ao se inscrever, você concorda com nossa política de privacidade. 
-                      Você pode cancelar a inscrição a qualquer momento.
+                      Ao se inscrever, você concorda com nossa política de
+                      privacidade. Você pode cancelar a inscrição a qualquer
+                      momento.
                     </p>
                   </form>
                 ) : (
@@ -122,7 +133,8 @@ const NewsletterSection = () => {
                       Inscrição realizada com sucesso!
                     </h3>
                     <p className="text-abanic-gray">
-                      Obrigado por se inscrever. Você receberá nossas novidades em breve.
+                      Obrigado por se inscrever. Você receberá nossas novidades
+                      em breve.
                     </p>
                   </div>
                 )}
@@ -149,4 +161,3 @@ const NewsletterSection = () => {
 };
 
 export default NewsletterSection;
-

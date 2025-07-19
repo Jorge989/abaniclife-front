@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,14 +45,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
+
   /* Cores customizadas do Abanic */
-  --abanic-orange: #FF4C1B;
-  --abanic-orange-light: #FF6B3D;
-  --abanic-orange-dark: #E63E15;
-  --abanic-gray-light: #F7F7F7;
-  --abanic-gray: #6F6F6F;
-  --abanic-gray-dark: #3F3F3F;
+  --abanic-orange: #ff4c1b;
+  --abanic-orange-light: #ff6b3d;
+  --abanic-orange-dark: #e63e15;
+  --abanic-gray-light: #f7f7f7;
+  --abanic-gray: #6f6f6f;
+  --abanic-gray-dark: #3f3f3f;
 }
 
 :root {
@@ -125,49 +130,49 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
-  
+
   /* Estilos customizados para o Abanic */
   .abanic-orange {
     color: var(--abanic-orange);
   }
-  
+
   .bg-abanic-orange {
     background-color: var(--abanic-orange);
   }
-  
+
   .bg-abanic-gray-light {
     background-color: var(--abanic-gray-light);
   }
-  
+
   .text-abanic-gray {
     color: var(--abanic-gray);
   }
-  
+
   .text-abanic-gray-dark {
     color: var(--abanic-gray-dark);
   }
-  
+
   /* Animações suaves */
   .transition-smooth {
     transition: all 0.3s ease-in-out;
   }
-  
+
   /* Scroll suave */
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Hover effects */
   .hover-lift:hover {
     transform: translateY(-2px);
   }
-  
+
   .hover-scale:hover {
     transform: scale(1.05);
   }
-  
+
   /* Animações de entrada */
   @keyframes fadeInUp {
     from {
@@ -179,7 +184,7 @@
       transform: translateY(0);
     }
   }
-  
+
   @keyframes fadeInLeft {
     from {
       opacity: 0;
@@ -190,7 +195,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes fadeInRight {
     from {
       opacity: 0;
@@ -201,40 +206,40 @@
       transform: translateX(0);
     }
   }
-  
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
-  
+
   .animate-fade-in-left {
     animation: fadeInLeft 0.8s ease-out forwards;
   }
-  
+
   .animate-fade-in-right {
     animation: fadeInRight 0.8s ease-out forwards;
   }
-  
+
   .animation-delay-300 {
     animation-delay: 0.3s;
   }
-  
+
   .animation-delay-600 {
     animation-delay: 0.6s;
   }
-  
+
   .animation-delay-900 {
     animation-delay: 0.9s;
   }
-  
+
   /* Otimizações de performance */
   .will-change-transform {
     will-change: transform;
   }
-  
+
   .will-change-opacity {
     will-change: opacity;
   }
-  
+
   /* Skeleton loading */
   @keyframes skeleton-loading {
     0% {
@@ -244,37 +249,37 @@
       background-position: calc(200px + 100%) 0;
     }
   }
-  
+
   .skeleton {
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200px 100%;
     animation: skeleton-loading 1.5s infinite;
   }
-  
+
   /* Scroll personalizado */
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: var(--abanic-orange);
     border-radius: 4px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: var(--abanic-orange-dark);
   }
-  
+
   /* Focus states para acessibilidade */
   .focus-ring:focus {
     outline: 2px solid var(--abanic-orange);
     outline-offset: 2px;
   }
-  
+
   /* Prefers reduced motion */
   @media (prefers-reduced-motion: reduce) {
     * {
@@ -282,7 +287,7 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
-    
+
     html {
       scroll-behavior: auto;
     }

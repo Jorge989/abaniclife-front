@@ -8,7 +8,7 @@ const translations = {
   pt: {
     topBar: "Enviamos para todo o Brasil",
     menu: [
-      { name: "Home", href: "#home" },
+      { name: "Home", href: "/" },
       {
         name: "Sobre",
         href: "#sobre",
@@ -19,10 +19,10 @@ const translations = {
       },
       {
         name: "Produto",
-        href: "#produto",
+        href: "/product",
         submenu: [
-          { name: "Hidratante com FPS 50", href: "#hidratante" },
-          { name: "Ativos e Benefícios", href: "#ativos" },
+          { name: "Hidratante com FPS 50", href: "/product#hidratante" },
+          { name: "Ativos e Benefícios", href: "/product#ativos" },
         ],
       },
       {
@@ -218,13 +218,25 @@ const Header = () => {
               onMouseEnter={() => item.submenu && setActiveSubmenu(index)}
               onMouseLeave={() => setActiveSubmenu(null)}
             >
-              <a
-                href={item.href}
-                className="text-abanic-gray hover:text-abanic-gray-dark transition-smooth flex items-center"
-              >
-                {item.name}
-                {item.submenu && <ChevronDown className="ml-1 h-4 w-4" />}
-              </a>
+              {item.submenu ? (
+                // Menu com submenu — não clicável, só abre o dropdown
+                <button
+                  type="button"
+                  className="text-abanic-gray hover:text-abanic-gray-dark transition-smooth flex items-center cursor-pointer"
+                  onClick={(e) => e.preventDefault()} // evita navegação acidental
+                >
+                  {item.name}
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+              ) : (
+                // Menu sem submenu — link normal
+                <a
+                  href={item.href}
+                  className="text-abanic-gray hover:text-abanic-gray-dark transition-smooth flex items-center"
+                >
+                  {item.name}
+                </a>
+              )}
 
               {item.submenu && activeSubmenu === index && (
                 <div className="absolute top-full left-0 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
